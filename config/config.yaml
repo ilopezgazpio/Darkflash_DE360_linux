@@ -1,0 +1,41 @@
+# DE360 LCD dashboard. Paths are relative to this file unless absolute.
+
+sample_interval: 2      # seconds between sensor reads (history = 150 samples = 5 min)
+history: 150
+min_frame_interval: 1   # never send more than 1 frame per second
+max_frame_gap: 1.5      # resend an unchanged frame after this many s; the screen
+                        # resets itself after ~8-11 s without frames
+brightness: 80          # 0-100
+rotate: 180             # 0, 90, 180 or 270 - pick whatever shows upright on your pump
+jpeg_quality: 80
+
+# Pages shown in this order. "gpu" expands to one page per GPU.
+pages:
+  - {page: overview, seconds: 15}
+  - {page: cpu, seconds: 12}
+  - {page: gpu, seconds: 12}
+  - {page: system, seconds: 12}
+  - {page: logo, seconds: 8}
+
+logo: logo_lcd.png      # any PNG; transparent background looks best (see tools/make_logo.py)
+logo_title: MURGILDU
+logo_subtitle: 3D Graphics Laboratory · EHU
+
+# degC: warning, serious, critical (green / amber / orange / red)
+thresholds:
+  cpu: [75, 85, 92]     # Tctl
+  gpu: [75, 83, 88]
+
+# Pin the alert page when a temperature reaches its limit (default: the
+# critical threshold above); release once it is `hysteresis` degC below it.
+alert:
+  cpu_limit: 92
+  gpu_limit: 88
+  hysteresis: 5
+
+disks:
+  - {label: /home, path: /home}
+  - {label: scratch1, path: /scratch1}
+  - {label: scratch2, path: /scratch2}
+
+net_iface: auto         # or e.g. enp5s0; auto = interface of the default route

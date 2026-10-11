@@ -1,0 +1,3 @@
+# darkFlash DE240/DE360 AIO LCD (USB 1800:3006, "HOTSPOTEKUSB HID DEMO"):
+# let the plugdev group (and the logged-in user) open its hidraw node.
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1800", ATTRS{idProduct}=="3006", MODE="0660", GROUP="plugdev", TAG+="uaccess"

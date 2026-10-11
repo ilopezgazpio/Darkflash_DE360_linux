@@ -1,0 +1,4 @@
+# Installed into the service venv by install.sh. Pillow and PyYAML come from apt
+# (python3-pil, python3-yaml) through --system-site-packages.
+psutil>=5.9
+nvidia-ml-py>=12.535

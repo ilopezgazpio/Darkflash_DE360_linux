@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+venv/
+deps/
+out/
+# never commit vendor files (copyrighted): installers, extracted CABs/DLLs, disassembly
+*.exe
+*.msi
+*.cab
+*.dll
+*.asm
+vendor/
